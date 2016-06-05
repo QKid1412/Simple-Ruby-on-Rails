@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
     end
     
     def edit
-        @std = Student.find(param[:id])
+        
     end
     
     def new

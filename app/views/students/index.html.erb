@@ -1,0 +1,66 @@
+<head>
+    <title>Listing Students</title>
+    <style>
+        body{
+            background-image: url("../public/bground.jpg");
+        }
+        .button{
+			font-size: 10pt;
+			color: #ffd3dd;
+			border: none;
+			border-radius: 5px;
+			vertical-align: center;
+			height: 30px;
+			width: 50px;
+			margin-top: 0;
+			float: right;
+			margin-left: 10px;
+			margin-right: 5px;
+			background-color: #b2191b;
+			text-shadow: 1px 1px 1px #bcbcbc;
+		}
+		
+		thead,tbody{
+		    font-size: 14pt;
+			width: auto;
+			border-top: 2px solid;
+			
+			
+		}
+		.block{
+		    padding-right: 20px;
+		    font-family: cambria;
+		    width: 20px fixed;
+		}
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><b>Name</b></th>
+                <th><b>Weight</b></th>
+                <th><b>Height</b></th>
+                <th><b>Color</b></th>
+                <th><b>GPA</b></th>
+                <th><b>Email</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @std.each do |student| %>
+                <tr>
+                    <td class="block"><%= student.name %></td>
+                    <td class="block"><%= student.weight %></td>
+                    <td class="block"><%= student.height %></td>
+                    <td class="block"><%= student.color %></td>
+                    <td class="block"><%= student.gpa %></td>
+                    <td class="block"><%= student.email %></td>
+                    <td class="b_block"><%= link_to '<button class="button" type="button">Show</button>'.html_safe, student %></td>
+                    <td class="b_block"><%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_student_path(student) %></td>
+                    <td class="b_block"><%= link_to '<button class="button" type="button">Delete</button>'.html_safe, student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+            <% end %>
+            
+        </tbody>
+    </table>
+</body>
