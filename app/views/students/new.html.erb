@@ -1,5 +1,32 @@
-<h1>New Student</h1>
+<style>
+     body{
+            background-image: src="http://i.imgur.com/5mEn085.jpg?1";
+        }
+    .largebutton:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+	    	background-color: #e1d6a9;
+            color: black;
+            border: 2px solid #ae170f;
+	    	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+		}
+		.largebutton{
+			font-size: 11pt;
+			color: #ffd3dd;
+			border: none;
+			border-radius: 5px;
+			vertical-align: center;
+			height: 40px;
+			width: 100px;
+			margin-top: 30px;
+			margin-left: 2%;
+			margin-right: 5px;
+			background-color: #b2191b;
+			text-shadow: 1px 1px 1px #bcbcbc;
+		}
+</style>
+<h1 style= "font-family: arial;">New Student</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', students_path %>
+<%= link_to '<button class="largebutton" type="button">Back</button>'.html_safe, students_path %>
