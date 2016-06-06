@@ -7,37 +7,49 @@
             border: 2px solid #ae170f;
 	    	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
 		}
-		.largebutton{
-			font-size: 11pt;
+	.largebutton{
+
+			font-size: 14pt;
 			color: #ffd3dd;
 			border: none;
 			border-radius: 5px;
 			vertical-align: center;
-			height: 40px;
-			width: 100px;
+			height: 50px;
+			width: 150px;
 			margin-top: 30px;
 			margin-left: 2%;
 			margin-right: 5px;
 			background-color: #b2191b;
 			text-shadow: 1px 1px 1px #bcbcbc;
 		}
+		.email {
+          text-align: center;
+          vertical-align:middle;
+          color: black;
+          display: none;
+          padding-top: 8px;
+		}
+		
 </style>
 
-<h1 style= "font-family: arial;"> Displaying Students </h1>
+
 
 <%= link_to '<button class="largebutton" type="button">Go back to DB</button>'.html_safe, students_path %>
-<div class = "container" style="  margin-top: 10%;
-  margin-left: 10%;">
+<%= link_to '<button class="largebutton" type="button">Homepage</button>'.html_safe, root_path %>
+<h1 style= "text-align: center; font-family: arial; margin-left: 3%;"> Displaying Students </h1>
+<div class = "container" style="  margin-top: 5%;
+  margin-left: 15%; margin-right: 15%;">
+
 <% @std.each do |std| %>
 
-  <div class = "box"
+  <div id= "box<%=std.id%>" class = "box"
    style=
   "border: <%=std.gpa %>px solid <%= std.color %>;
   position: relative;
   padding: 0;
-  top: 10px;
   float: left;
-  margin: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
   width: <%= std.weight%>px;
   height: <%= std.height%>px;
   ">
@@ -46,9 +58,16 @@
     <%= std.name %> 
     <%= std.gpa %> 
     </div>
-    
+    <div id= "email<%=std.id%>" class="email"><b> <%=std.email%> </b></div>
+    <script type="text/javascript">
+		    $('#box<%=std.id%>').hover(function() {
+                $('#email<%=std.id%>').show();
+            }, function() {
+        $('#email<%=std.id%>').hide();
+        });
+    </script>
   </div>
-
+  
 <% end %>
 </div>
      
