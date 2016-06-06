@@ -9,7 +9,28 @@
         margin-top: 1%;
         font-size: 14pt;
         height: 40px;
+
     }
+    .button{
+			font-size: 11pt;
+			color: #ffd3dd;
+			border: none;
+			border-radius: 5px;
+			vertical-align: center;
+			height: 30px;
+			width: 60px;
+			margin-top: 0;
+			background-color: #b2191b;
+			text-shadow: 1px 1px 1px #bcbcbc;
+		}
+		.button:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+	    	background-color: #e1d6a9;
+            color: black;
+            border: 2px solid #ae170f;
+	    	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+		}
 
 </style>
 <%= form_for(@std) do |f| %>
@@ -50,6 +71,6 @@
     <%= f.text_field :email %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'submit', :class => 'button' %>
   </div>
 <% end %>
