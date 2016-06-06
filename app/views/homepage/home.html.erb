@@ -10,6 +10,7 @@
             text-shadow: 1px 1px 1px #bcbcbc;
         }
         .button{
+
 			font-size: 18pt;
 			color: black;
 			border: 5px solid #dccfa3;
@@ -44,6 +45,17 @@
                 padding: 8px 0 8px 16px;
                 text-decoration: none;
         }
+        #note{
+            height: 100px;
+		    width: 800px;
+            font-size: 18pt;
+		    font-family: cambria;
+		    margin-top:-10%;
+		    margin-right: 15%;
+		    float: right;
+		    text-shadow: 1px 1px 1px #bcbcbc;
+            
+        }
 		#intro{
 		    height: 300px;
 		    width: 500px;
@@ -58,12 +70,17 @@
 
 <body>
     <div><h1 id="title"><b>SUMMER 2016 &nbsp CMPT276 Assignment#2</b></h1></div>
-    <div id="button1">
+    
          <%= link_to '<button class="button" type="button">Go to Database</button>'.html_safe, students_path %>
          <%= link_to '<button class="button" type="button">Go to Display Page</button>'.html_safe, students_display_path %>
          <%= link_to '<button class="button" type="button">Add new student</button>'.html_safe, new_student_path %>
+   
+    <div id="note"><p><i>Note: 'Go to Database' button leads to the list of all records. 'Go to Display Page' button
+              leads to the display page(the additional attribute is 'email', which shows the emailaddress [onmouseover]). 'Add new student' button
+              directly leads to the page of adding new student, where has no button for coming back to homepage.</i></p>
     </div>
     <div id="intro">
+        
         <ul>
             <li>Name: &nbsp Amber(Qingyun) Qi<br></li>
             <li>Student_ID: &nbsp301269563<br></li>
