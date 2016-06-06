@@ -1,8 +1,9 @@
 <head>
     <title>Listing Students</title>
+    
     <style>
         body{
-            background-image: url("../public/bground.jpg");
+            background-image: src="http://i.imgur.com/5mEn085.jpg?1";
         }
         .button{
 			font-size: 10pt;
@@ -13,31 +14,74 @@
 			height: 30px;
 			width: 50px;
 			margin-top: 0;
-			float: right;
 			margin-left: 10px;
 			margin-right: 5px;
 			background-color: #b2191b;
 			text-shadow: 1px 1px 1px #bcbcbc;
 		}
-		
-		thead,tbody{
+		.button:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+	    	background-color: #e1d6a9;
+            color: black;
+            border: 2px solid #ae170f;
+	    	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+		}
+		.largebutton:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+	    	background-color: #e1d6a9;
+            color: black;
+            border: 2px solid #ae170f;
+	    	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+		}
+		.largebutton{
+			font-size: 11pt;
+			color: #ffd3dd;
+			border: none;
+			border-radius: 5px;
+			vertical-align: center;
+			height: 40px;
+			width: 100px;
+			margin-top: 0;
+			margin-left: 10%;
+			margin-right: 5px;
+			background-color: #b2191b;
+			text-shadow: 1px 1px 1px #bcbcbc;
+		}
+		table{
+		    margin-left: 10%;
+		    margin-top: 30px;
+		}
+		#head{
 		    font-size: 14pt;
-			width: auto;
-			border-top: 2px solid;
-			
+		    margin-left: 15px;
+		    margin-right: 15px;
+			width: 10%;
 			
 		}
+		#body{
+		    text-align: center;
+		    font-size: 13pt;
+		    margin-left: 15px;
+		    margin-right: 15px;
+			width: 10%;
+			
+		}
+		
 		.block{
-		    padding-right: 20px;
+		    padding-left: 10px;
+		    padding-right: 10px;
 		    font-family: cambria;
-		    width: 20px fixed;
+		    width: 10%;
+		    text-align: center;
 		}
     </style>
 </head>
 <body>
     <table>
         <thead>
-            <tr>
+            <tr id="head">
                 <th><b>Name</b></th>
                 <th><b>Weight</b></th>
                 <th><b>Height</b></th>
@@ -48,19 +92,24 @@
         </thead>
         <tbody>
             <% @std.each do |student| %>
-                <tr>
+                <tr id="body">
                     <td class="block"><%= student.name %></td>
                     <td class="block"><%= student.weight %></td>
                     <td class="block"><%= student.height %></td>
                     <td class="block"><%= student.color %></td>
                     <td class="block"><%= student.gpa %></td>
                     <td class="block"><%= student.email %></td>
-                    <td class="b_block"><%= link_to '<button class="button" type="button">Show</button>'.html_safe, student %></td>
-                    <td class="b_block"><%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_student_path(student) %></td>
-                    <td class="b_block"><%= link_to '<button class="button" type="button">Delete</button>'.html_safe, student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td class="b_block"><%= link_to '<button class="button" type="button">Show</button>'.html_safe, student %>
+                    <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_student_path(student) %>
+                    <%= link_to '<button class="button" type="button">Delete</button>'.html_safe, student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
             
         </tbody>
     </table>
+    
 </body>
+<%= link_to '<button class="largebutton" type="button">New Student</button>'.html_safe, new_student_path %>
+<%= link_to '<button class="largebutton" type="button">Homepage</button>'.html_safe, root_path %>
+<%= link_to '<button class="largebutton" type="button">Display all</button>'.html_safe, students_display_path %>
+

@@ -1,0 +1,28 @@
+
+
+<h1> Displaying Students </h1>
+
+
+<div class = "container">
+<% @std.each do |std| %>
+
+  <div class = "box"
+   style=
+  "border: 5px solid <%= std.color %>;
+  
+  position: relative
+  padding: 0;
+  top: 10px;
+  float: left;
+  margin: 10px;
+  width: <%= std.weight%>px;
+  height: <%= std.height%>px;
+  ">
+      
+    <div id = "names"> <%= std.name %> </div>
+  </div>
+
+<% end %>
+</div>
+     
+

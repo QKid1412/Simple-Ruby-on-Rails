@@ -8,12 +8,17 @@ class StudentsController < ApplicationController
         @std = Student.find(params[:id])
     end
     
-    def edit
-        
-    end
-    
+   
     def new
         @std = Student.new
+    end
+     
+    def edit
+         @std = Student.find(params[:id])
+    end
+    
+    def display
+         @std = Student.all
     end
     
     def create
@@ -26,6 +31,7 @@ class StudentsController < ApplicationController
     end
     
     def update
+         @std = Student.find(params[:id])
         if @std.update(student_params)
             redirect_to @std, notice: 'Student record was successfully updated'
         else
