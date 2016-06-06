@@ -1,28 +1,18 @@
-== README
+###
+#CMPT276-Assignment2
+#Name: Amber Qi
+#ID: 301269563
+#Date: 2016-6-5
+###############################
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Additional features:
 
-Things you may want to cover:
+Model: validation. Including validate all attributes' presence, 
+       [only_integer] validation for height & weight, and length validation 
+       for email(minimum: 6)
 
-* Ruby version
+Display: added feature is 'email', when [onmouseover] the box, the email record appears.
+         The border-color of the boxes are corresponding @record.color.
+         The border-width of the boxes are corresponding value of @record.gpa.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Others: added homepage, buttons to make the pages look better.
