@@ -16,3 +16,4 @@ Display: added feature is 'email', when [onmouseover] the box, the email record 
          The border-width of the boxes are corresponding value of @record.gpa.
 
 Others: added homepage, buttons to make the pages look better.
+        Added analyzation on DB page, [onmouseover] to see the total number of students and the average weight, height, gpa of the database.

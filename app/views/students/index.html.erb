@@ -76,6 +76,34 @@
 		    width: 10%;
 		    text-align: center;
 		}
+		
+		#span{
+			height: 10%;
+			width: 72%;
+			margin-left: 9%;
+			padding-left: 0.8%;
+			padding-top: 5px;
+			margin-top: 5%;
+			border: 1px solid transparent;
+			font-size: 16pt;
+			font-family: calibri;
+			color: #b12340;
+			text-shadow: 1px 1px 1px #bcbcbc;
+		}
+		#analyze {
+			   border: 5px solid #dccfa3;
+ 			   height: 40px;
+ 			   width: 800px;
+ 			   font-size: 14pt;
+ 			   text-align: center;
+ 			   vertical-align:middle;
+ 			   background-color: inherit;
+ 			   color: black;
+ 			   display: none;
+			   padding-top: 8px;
+			   text-shadow: 1px 1px 1px #bcbcbc;
+			
+		}
     </style>
 </head>
 <body>
@@ -114,3 +142,41 @@
 <%= link_to '<button class="largebutton" type="button">Homepage</button>'.html_safe, root_path %>
 <%= link_to '<button class="largebutton" type="button">Display all</button>'.html_safe, students_display_path %>
 
+<% total = 0 %>
+<% count = 0 %>
+<% @std.each do |std| %>
+<% total = total + std.weight %>
+<% count = count +1%>
+<% end %>
+<% avgweight = total/count %>
+
+<% total = 0 %>
+<% count = 0 %>
+<% @std.each do |std| %>
+<% total = total + std.height %>
+<% count = count +1%>
+<% end %>
+<% avgheight = total/count %>
+
+<% total = 0 %>
+<% count = 0 %>
+<% @std.each do |std| %>
+<% total = total + std.gpa %>
+<% count = count +1%>
+<% end %>
+<% avggpa = total/count %>
+<div id="span"><b>DATA ANALYZATION: see average weight, height, and GPA</b>
+	<div id="analyze">
+		<%= "Number of people: #{count}" %>&nbsp&nbsp
+		<%= "Average Weight: #{avgweight}" %>&nbsp&nbsp
+		<%= "Average Height: #{avgheight}" %>&nbsp&nbsp
+		<%= "Average GPA: #{avggpa.round(2)}" %>
+	</div>
+	<script type="text/javascript">
+		    $('#span>').hover(function() {
+                $('#analyze').show();
+            }, function() {
+        $('#analyze').hide();
+        });
+</script>
+</div>
