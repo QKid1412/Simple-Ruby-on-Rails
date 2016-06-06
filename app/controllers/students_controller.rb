@@ -39,9 +39,8 @@ class StudentsController < ApplicationController
         end
     end
     def destroy
-        @std = Student.find(params[:id])
-        @std.destroy
-        redirect_to student_url, notice:'Record deleted'
+        Student.find(params[:id]).destroy
+        redirect_to :action => 'index'
     end
     private
     def student_params
